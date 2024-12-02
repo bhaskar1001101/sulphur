@@ -41,11 +41,11 @@ export function MarketChart({ data, timeframe }: MarketChartProps) {
           domain={['dataMin', 'dataMax']}
           type="number"
           scale="time"
-          tickFormatter={(unixTime) => new Date(unixTime).toLocaleDateString()}
+          tickFormatter={(unixTime) => new Date(unixTime * 1000).toLocaleDateString()}
         />
         <YAxis domain={[0, 100]} />
         <Tooltip
-          labelFormatter={(label) => new Date(label).toLocaleString()}
+          labelFormatter={(label) => new Date(label * 1000).toLocaleString()}
           formatter={(value: number) => `${value.toFixed(2)}%`}
         />
         <CartesianGrid strokeDasharray="3 3" />

@@ -27,20 +27,22 @@ export interface MarketData extends Market {
 }
 
 export function generateMockChartData(
-  days: number = 90,
+  days: number = 2,
   startProb: number = 65,
   volatility: number = 10
 ): ChartData[] {
   const data: ChartData[] = [];
   let currentProb = startProb;
   
-  // Set end date to today at midnight UTC
-  const endDate = new Date();
-  endDate.setHours(0, 0, 0, 0);
-  const endTimestamp = endDate.getTime();
-  const dayInMs = 86400000; // 24 hours in milliseconds
+  // Get current timestamp
+  const now = Date.now();
+  const twoDaysAgo = now - (2 * 24 * 60 * 60 * 1000);
+  
+  // Generate data points every 15 minutes
+  const interval = 15 * 60 * 1000; // 15 minutes in milliseconds
+  let timestamp = twoDaysAgo;
 
-  for (let i = days - 1; i >= 0; i--) {
+  while (timestamp <= now) {
     // Random walk with mean reversion
     const change = (Math.random() - 0.5) * volatility;
     currentProb += change;
@@ -48,9 +50,11 @@ export function generateMockChartData(
     currentProb = Math.min(Math.max(currentProb, 1), 99);
     
     data.push({
-      timestamp: Math.floor((endTimestamp - i * dayInMs) / 1000),
+      timestamp: Math.floor(timestamp / 1000),
       probability: Math.round(currentProb)
     });
+
+    timestamp += interval;
   }
 
   return data.sort((a, b) => a.timestamp - b.timestamp);

@@ -18,20 +18,20 @@ export default function MarketPage() {
   const [chartData, setChartData] = useState<ChartData[]>([])
   
   const mockMarket: Market = {
-    id: "bitcoin-100k-2024",
-    title: "Will Bitcoin hit $100k by the end of 2024?",
+    id: "unfold",
+    title: "Will we finish this hack before the deadline?",
     creator: {
-      name: "CryptoOracle",
-      avatar: "https://example.com/crypto-oracle-avatar.png",
+      name: "Team Sulphur",
+      avatar: "https://example.com/unfold-avatar.png", 
       isPremium: true,
     },
     stats: {
-      likes: 1200,
-      traders: 500,
-      volume: "50m",
-      createdAt: "2023-06-01",
+      likes: 245,
+      traders: 120,
+      volume: "4.8m",
+      createdAt: "2024-01-20",
     },
-    probability: 72,
+    probability: 45,
   }
   const [market, setMarket] = useState<Market>(mockMarket)
 
@@ -70,7 +70,7 @@ export default function MarketPage() {
 
 
   return (
-    <div className="min-h-full bg-[#0a0b14] text-white">
+    <div className="min-h-screen bg-[#0a0b14] text-white">
       <Navbar></Navbar>
       <div className="max-w-7xl mx-auto px-6 py-8 space-y-8">
         <MarketHeader market={market} />
@@ -78,7 +78,7 @@ export default function MarketPage() {
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <span className="text-5xl font-bold">{market.probability}%</span>
+              <span className="text-5xl font-bold">{chartData[chartData.length - 1]?.probability}%</span>
               <span className="text-gray-400">chance</span>
             </div>
             <TimeframeSelector selected={timeframe} onChange={setTimeframe} />

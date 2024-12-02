@@ -55,17 +55,7 @@ const SendRawTransaction = ({ apiFn }: {apiFn: any}) => {
           onChange={(e) => setInstructions(JSON.parse(e.target.value))}
         />
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700">
-          Signers
-        </label>
-        <input
-          type="text"
-          className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-          value={signers.join(", ")}
-          onChange={(e) => setSigners(e.target.value.split(", "))}
-        />
-      </div>
+      z
       <button
         className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700"
         onClick={sendTransaction}

@@ -10,6 +10,8 @@ import { OktoContextType } from "okto-sdk-react";
 export function Navbar() {
   const { data: session } = useSession();
   const { isLoggedIn, showWidgetModal } = useOkto() as OktoContextType;
+
+  console.log(isLoggedIn);
   // if isLoggenIn set 
 
   return (

@@ -13,7 +13,7 @@ export function GetStartedButton() {
       if (session) {
         try {
           const walletData = await getWallets();
-          // console.log(walletData)
+          console.log(walletData)
           if (walletData && walletData.wallets.length > 0) {
             setWalletAddress(walletData.wallets[0].address);
           }

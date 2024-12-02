@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Heart, Users, BarChart3, Calendar } from 'lucide-react'
 import type { Market } from "@/types/market"
@@ -16,10 +16,10 @@ export function MarketHeader({ market }: MarketHeaderProps) {
       
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2">
-          <Avatar className="h-8 w-8">
+          {/* <Avatar className="h-8 w-8">
             <AvatarImage src={market.creator.avatar} />
             <AvatarFallback>{market.creator.name[0]}</AvatarFallback>
-          </Avatar>
+          </Avatar> */}
           <span className="text-gray-300">{market.creator.name}</span>
           {market.creator.isPremium && (
             <Badge variant="secondary" className="bg-violet-500/20 text-violet-300">

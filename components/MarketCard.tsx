@@ -7,10 +7,9 @@ interface MarketCardProps {
   title: string
   chance: number
   volume: string
-  imageUrl: string
 }
 
-export function MarketCard({ id, title, chance, volume, imageUrl }: MarketCardProps) {
+export function MarketCard({ id, title, chance, volume }: MarketCardProps) {
   return (
     <Link href={`/markets/${id}`} className="block">
     <Card className="bg-gray-800/50 border-gray-700 p-4">
